@@ -1,0 +1,26 @@
+/* --- Action Node Specific Styles --- */
+
+/* Border and Handle colors based on position type */
+.action-node.long { border-color: var(--success-color); }
+.action-node.long .react-flow__handle { background-color: var(--success-color); }
+.action-node.long .node-header { background-color: rgba(16, 185, 129, 0.1); border-color: rgba(16, 185, 129, 0.2); }
+.action-node.long .position-icon.long { color: var(--success-dark); } /* Darker green icon */
+
+.action-node.short { border-color: var(--danger-color); }
+.action-node.short .react-flow__handle { background-color: var(--danger-color); }
+.action-node.short .node-header { background-color: rgba(239, 68, 68, 0.1); border-color: rgba(239, 68, 68, 0.2); }
+.action-node.short .position-icon.short { color: var(--danger-dark); } /* Darker red icon */
+
+/* Position Icon in Header */
+.position-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0; /* Prevent icon from shrinking */
+    margin-left: 4px; /* Space between title and icon */
+    /* Removed background/shadow for simpler look in header */
+}
+
+/* Styles for removed elements */
+/* .action-details { ... } */
+/* .action-label { ... } */

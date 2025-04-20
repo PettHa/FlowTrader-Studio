@@ -1,0 +1,62 @@
+/* --- Fil: src/App.css --- */
+
+.app {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: var(--gray-100);
+  }
+  
+  .app-main {
+    flex: 1;
+    padding: 1.5rem 0; /* Padding top and bottom */
+  }
+  
+  .builder-title {
+      text-align: center;
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--gray-700);
+      margin-bottom: 1.5rem;
+  }
+  
+  /* Styles for buttons used outside specific components */
+  .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.5rem 1rem;
+      border-radius: 0.375rem;
+      font-weight: 500;
+      font-size: 0.875rem;
+      line-height: 1.25rem;
+      cursor: pointer;
+      transition: all 0.2s ease-in-out;
+      border: 1px solid transparent;
+      white-space: nowrap;
+  }
+  .btn:focus { outline: none; }
+  .btn:disabled { opacity: 0.65; cursor: not-allowed; }
+  .btn svg { margin-right: 0.25rem; width: 16px; height: 16px; }
+  .btn-primary { background-color: var(--primary-color); color: white; border-color: var(--primary-color); }
+  .btn-primary:hover:not(:disabled) { background-color: var(--primary-dark); border-color: var(--primary-dark); }
+  .btn-primary:focus { box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5); }
+  .btn-secondary { background-color: white; color: var(--gray-700); border-color: var(--gray-300); }
+  .btn-secondary:hover:not(:disabled) { background-color: var(--gray-50); border-color: var(--gray-400); }
+  .btn-secondary:focus { box-shadow: 0 0 0 3px rgba(209, 213, 219, 0.5); }
+  .btn-danger { background-color: var(--danger-color); color: white; border-color: var(--danger-color); }
+  .btn-danger:hover:not(:disabled) { background-color: var(--danger-dark); border-color: var(--danger-dark); }
+  .btn-danger:focus { box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.5); }
+  
+  /* Panel basic style if needed outside builder */
+  .panel {
+      background-color: white;
+      border-radius: 0.5rem;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--gray-200);
+      margin-bottom: 1rem;
+      overflow: hidden;
+  }
+  .panel-body {
+      padding: 1rem;
+  }

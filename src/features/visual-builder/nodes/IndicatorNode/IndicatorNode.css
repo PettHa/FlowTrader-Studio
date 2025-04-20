@@ -1,0 +1,21 @@
+/* --- Indicator Node Specific Styles --- */
+
+.indicator-node { border-color: var(--pink-600, #db2777); } /* Use a specific color or fallback */
+.indicator-node .react-flow__handle { background-color: var(--pink-600, #db2777); }
+.indicator-node .node-header { border-color: rgba(219, 39, 119, 0.2); background-color: rgba(219, 39, 119, 0.1); }
+
+/* Style for the icon in the header */
+.indicator-node .node-header svg {
+    color: var(--pink-700, #be185d);
+    margin-left: 4px;
+    flex-shrink: 0;
+}
+
+
+/* Removed subtitle styles */
+/* .indicator-node .node-subtitle { ... } */
+
+/* Ensure param groups have consistent spacing */
+.indicator-node .node-param-group {
+    padding: 0.5rem 0.75rem; /* Slightly reduce padding */
+}

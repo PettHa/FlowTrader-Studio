@@ -1,0 +1,22 @@
+/* --- Logic Node Specific Styles --- */
+
+.logic-node { border-color: var(--indigo-600, #4f46e5); }
+.logic-node .react-flow__handle { background-color: var(--indigo-600, #4f46e5); }
+.logic-node .node-header { border-color: rgba(79, 70, 229, 0.2); background-color: rgba(79, 70, 229, 0.1); }
+
+/* Style for the logic symbol in the header */
+.logic-symbol-header {
+    font-size: 0.9rem; /* Slightly smaller than node title */
+    font-weight: bold;
+    font-family: monospace;
+    color: var(--indigo-700, #4338ca);
+    margin-left: 4px;
+    flex-shrink: 0;
+    background-color: rgba(255, 255, 255, 0.6);
+    padding: 0 4px;
+    border-radius: 2px;
+}
+
+
+/* Removed styles for display-only elements */
+/* .logic-symbol { ... } */

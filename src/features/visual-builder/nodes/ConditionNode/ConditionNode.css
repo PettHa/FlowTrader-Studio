@@ -1,0 +1,25 @@
+/* --- Condition Node Specific Styles --- */
+
+.condition-node { border-color: var(--success-color); }
+.condition-node .react-flow__handle { background-color: var(--success-color); }
+.condition-node .node-header { border-color: rgba(5, 122, 85, 0.2); background-color: rgba(5, 122, 85, 0.1); }
+
+/* Style for the condition symbol in the header */
+.condition-symbol-header {
+    font-size: 0.9rem; /* Slightly smaller than node title */
+    font-weight: bold;
+    font-family: monospace;
+    color: var(--success-dark);
+    margin-left: 4px;
+    flex-shrink: 0;
+    background-color: rgba(255, 255, 255, 0.6);
+    padding: 0 4px;
+    border-radius: 2px;
+}
+
+/* Removed styles for display-only elements */
+/* .condition-operator { ... } */
+/* .condition-symbol { ... } */
+/* .condition-symbol.threshold-display { ... } */
+
+/* Adjust handle/label wrapper gap if needed in general styles */

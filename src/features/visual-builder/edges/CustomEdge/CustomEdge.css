@@ -1,0 +1,8 @@
+/* --- Migrated rules --- */
+
+.react-flow__edge path.animated-edge {
+      stroke-dasharray: 5, 5;
+      animation: dashdraw 0.5s linear infinite;
+  }
+
+@keyframes dashdraw { to { stroke-dashoffset: -10; } }

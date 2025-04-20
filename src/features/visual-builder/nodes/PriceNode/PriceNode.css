@@ -1,0 +1,28 @@
+/* --- Price Node Specific Styles --- */
+
+.price-node { border-color: var(--blue-600, #2563eb); }
+.price-node .react-flow__handle { background-color: var(--blue-600, #2563eb); }
+.price-node .node-header { border-color: rgba(37, 99, 235, 0.2); background-color: rgba(37, 99, 235, 0.1); }
+
+/* Style for the icon in the header */
+.price-node .node-header svg {
+    color: var(--blue-700, #1d4ed8);
+    margin-left: 4px;
+    flex-shrink: 0;
+}
+
+.price-node .node-content {
+    padding: 0.4rem 0.75rem; /* Minimal padding */
+    text-align: center;
+    background-color: rgba(59, 130, 246, 0.03); /* Very light background */
+}
+
+.price-node .node-content p {
+    margin: 0; /* Remove default paragraph margin */
+}
+
+/* Ensure output handles have enough space */
+.price-node .connection-outputs {
+    gap: 10px; /* Adjust gap if needed for the number of outputs */
+    padding-bottom: 8px; /* Extra space at the bottom */
+}
