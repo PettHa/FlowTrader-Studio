@@ -1,3 +1,5 @@
+/* --- Fil: src/features/visual-builder/VisualStrategyBuilder.css --- */
+
 .visual-strategy-builder-container {
   display: flex;
   flex-direction: column;
@@ -108,7 +110,6 @@
 }
 
 /* Node configuration panel styles removed */
-/* .node-config-panel { ... } etc. removed */
 
 /* --- Add Node Dropdown Styles (from AddNodeDropdown.css, kept here for context) --- */
 .add-node-menu-header {
@@ -233,67 +234,100 @@ display: flex;
 align-items: center;
 justify-content: space-between;
 padding: 0.5rem 0.75rem;
-cursor: grab; /* Indicate draggable */
+cursor: pointer; /* Indicate clickable for expand/collapse */
 border-bottom: 1px solid var(--gray-200); /* Default border */
 background-color: var(--gray-50); /* Default header background */
 color: var(--gray-700);
+user-select: none; /* Prevent text selection on click */
 }
-.strategy-node.selected .node-header {
-    cursor: grabbing;
+/* Use grabbing cursor only when dragging the node, not just the header */
+.strategy-node.selected:active .node-header {
+   cursor: grabbing;
 }
 .node-title {
-  font-weight: 600;
-  font-size: 0.8rem;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  white-space: nowrap;
-  flex-grow: 1; /* Allow title to take available space */
-  margin-right: 0.5rem; /* Space before potential icon */
+font-weight: 600;
+font-size: 0.8rem;
+text-overflow: ellipsis;
+overflow: hidden;
+white-space: nowrap;
+flex-grow: 1; /* Allow title to take available space */
+margin-right: 0.5rem; /* Space before potential icon */
 }
 
-/* Edit toggle icon removed */
-/* .edit-toggle-icon { ... } */
-/* .node-header:hover .edit-toggle-icon { ... } */
-/* .editing .edit-toggle-icon { ... } */
+/* Style for non-toggle icons in header */
+.node-header-icon {
+  margin-left: 4px; /* Space between title and icon */
+  flex-shrink: 0;
+  color: var(--gray-500); /* Default icon color */
+}
 
-/* Node editing styles (now always visible) */
+/* Style for the toggle icon */
+.edit-toggle-icon {
+transition: transform 0.2s ease;
+color: var(--gray-500);
+flex-shrink: 0; /* Prevent icon shrinking */
+margin-left: 4px; /* Space between title/other icon and toggle */
+}
+.node-header:hover .edit-toggle-icon {
+  color: var(--gray-700);
+}
+/* Rotate icon when expanded (assuming .expanded class is added) */
+.strategy-node.expanded .edit-toggle-icon {
+transform: rotate(180deg);
+}
+
+
+/* Node editing styles (now always visible when expanded) */
 .node-param-group {
-  padding: 0.6rem 0.75rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.35rem; /* Spacing between label and input */
+padding: 0.6rem 0.75rem;
+display: flex;
+flex-direction: column;
+gap: 0.35rem; /* Spacing between label and input */
 }
 .node-param-group:not(:last-child) {
-    border-bottom: 1px solid var(--gray-100); /* Lighter separator */
+  border-bottom: 1px solid var(--gray-100); /* Lighter separator */
 }
 .node-param-label {
-  font-size: 0.7rem;
-  font-weight: 500;
-  color: var(--gray-600);
-  text-transform: uppercase;
-  letter-spacing: 0.02em;
+font-size: 0.7rem;
+font-weight: 500;
+color: var(--gray-600);
+text-transform: uppercase;
+letter-spacing: 0.02em;
 }
 .node-input, .node-select {
-  font-size: 0.75rem;
-  padding: 0.35rem 0.5rem; /* Slightly adjusted padding */
-  border: 1px solid var(--gray-300);
-  border-radius: 3px;
-  width: 100%;
-  box-sizing: border-box; /* Include padding/border in width */
+font-size: 0.75rem;
+padding: 0.35rem 0.5rem; /* Slightly adjusted padding */
+border: 1px solid var(--gray-300);
+border-radius: 3px;
+width: 100%;
+box-sizing: border-box; /* Include padding/border in width */
 }
 .node-input:focus, .node-select:focus {
-  outline: none;
-  border-color: var(--primary-color);
-  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.25);
+outline: none;
+border-color: var(--primary-color);
+box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.25);
 }
 .node-select {
-  background-color: white;
-  appearance: none;
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
-  background-position: right 0.3rem center;
-  background-repeat: no-repeat;
-  background-size: 1.2em 1.2em;
-  padding-right: 2rem;
+background-color: white;
+appearance: none;
+background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+background-position: right 0.3rem center;
+background-repeat: no-repeat;
+background-size: 1.2em 1.2em;
+padding-right: 2rem;
+}
+
+/* Style for the summary div shown when collapsed */
+.node-summary {
+  padding: 0.75rem; /* Consistent padding */
+  font-size: 0.8rem; /* Match node title size */
+  color: var(--gray-700);
+  text-align: center;
+  background-color: var(--gray-25, #fcfcfc); /* Very light background */
+  border-bottom: 1px solid var(--gray-100); /* Light separator */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 /* Node connections display */
@@ -372,13 +406,13 @@ right: 14px; /* Position left of the output handle */
 
 /* --- Node Type Specific Styles --- */
 /* Price Node */
-.price-node .node-header { background-color: rgba(0, 65, 208, 0.1); border-color: rgba(0, 65, 208, 0.2); }
+.price-node .node-header { background-color: rgba(0, 65, 208, 0.1); border-color: rgba(0, 65, 208, 0.2); cursor: grab; } /* Price node not expandable */
 /* Indicator Nodes */
-.indicator-node .node-header { background-color: rgba(255, 0, 114, 0.1); border-color: rgba(255, 0, 114, 0.2); }
+.indicator-node .node-header { border-color: rgba(219, 39, 119, 0.2); background-color: rgba(219, 39, 119, 0.1); }
 /* Condition Nodes */
-.condition-node .node-header { background-color: rgba(5, 122, 85, 0.1); border-color: rgba(5, 122, 85, 0.2); }
+.condition-node .node-header { border-color: rgba(5, 122, 85, 0.2); background-color: rgba(5, 122, 85, 0.1); }
 /* Logic Nodes */
-.logic-node .node-header { background-color: rgba(26, 25, 43, 0.1); border-color: rgba(26, 25, 43, 0.2); }
+.logic-node .node-header { border-color: rgba(79, 70, 229, 0.2); background-color: rgba(79, 70, 229, 0.1); }
 /* Action Nodes */
 .action-node.long .node-header { background-color: rgba(16, 185, 129, 0.1); border-color: rgba(16, 185, 129, 0.2); }
 .action-node.short .node-header { background-color: rgba(239, 68, 68, 0.1); border-color: rgba(239, 68, 68, 0.2); }
@@ -420,12 +454,12 @@ right: 14px; /* Position left of the output handle */
 
 /* Specific handle colors (examples) */
 /* Use type-specific styles if needed */
-.price-node .react-flow__handle { background-color: #0041d0; }
-.indicator-node .react-flow__handle { background-color: #ff0072; }
-.condition-node .react-flow__handle { background-color: #057a55; }
-.logic-node .react-flow__handle { background-color: #1a192b; }
-.action-node.long .react-flow__handle { background-color: #10b981; }
-.action-node.short .react-flow__handle { background-color: #ef4444; }
+.price-node .react-flow__handle { background-color: var(--blue-600, #2563eb); }
+.indicator-node .react-flow__handle { background-color: var(--pink-600, #db2777); }
+.condition-node .react-flow__handle { background-color: var(--success-color); }
+.logic-node .react-flow__handle { background-color: var(--indigo-600, #4f46e5); }
+.action-node.long .react-flow__handle { background-color: var(--success-color); }
+.action-node.short .react-flow__handle { background-color: var(--danger-color); }
 
 
 /* Selected node styling */
